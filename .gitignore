@@ -1,0 +1,30 @@
+# Ignore build artifacts
+cmake-build-*/
+build/
+out/
+
+# Ignore CLion project files
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+
+# Logs
+*.log
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Object files
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
