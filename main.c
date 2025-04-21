@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
 #define WORLD_WIDTH 25
 #define WORLD_HEIGHT 25
 
@@ -11,7 +14,12 @@ enum BlockType {
 typedef struct {
   int x;
   int y;
+} Position;
+
+typedef struct {
+  Position position;
 } Transform;
+
 
 typedef struct {
   enum BlockType type;
@@ -20,6 +28,7 @@ typedef struct {
 
 Block blocks[WORLD_WIDTH][WORLD_HEIGHT];
 
+void SeedRandom(void);
 void LoadWorldFile(void);
 
 int main(){
@@ -27,8 +36,15 @@ int main(){
   return 0;
 }
 
+void SeedRandom() {
+  srand(time(NULL));
+}
+
 void LoadWorldFile() {
-  printf("Hello Woreld\n");
+  FILE *worldFile = fopen("world.txt", "r");
+  if (worldFile == NULL) {
+    printf("File not found\n");
+  }
 }
 
 
