@@ -8,8 +8,6 @@ enum BlockType {
   Stone = 2,
 };
 
-
-
 typedef struct {
   int x;
   int y;
