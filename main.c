@@ -20,12 +20,15 @@ typedef struct {
 
 Block blocks[WORLD_WIDTH][WORLD_HEIGHT];
 
+void LoadWorldFile(void);
+
 int main(){
-  printf("Hello World\n");
-
-
-
+  LoadWorldFile();
   return 0;
+}
+
+void LoadWorldFile() {
+  printf("Hello Woreld\n");
 }
 
 
