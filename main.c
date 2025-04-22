@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <unistd.h>
+#include <conio.h>
+#include <windows.h>
+
 #define WORLD_WIDTH 25
 #define WORLD_HEIGHT 25
 
