@@ -37,6 +37,7 @@ void LoadWorldFile(void);
 Block* GetBlockAt(int x, int y);
 void SetBlockType(Block* _block, enum BlockType _type);
 void SetBlockPos(Block* _block, int _x, int _y);
+void GenWorld(void);
 
 
 int main(){
@@ -52,17 +53,34 @@ void LoadWorldFile() {
   FILE *worldFile = fopen("world.txt", "r");
   if (worldFile == NULL) {
     printf("File not found\n");
+    GenWorld();
+    return;
   }
   int _hight = 0;
   while (fgets(worldStrip, sizeof(worldStrip), worldFile)) {
+    if (strchr(worldStrip, '\n')) {
+      printf("Invalid Worldfile");
+      GenWorld();
+      return;
+    }
     for (int i = 0; i < WORLD_WIDTH; i++) {
-      enum BlockType _blockType = (enum BlockType)(worldStrip[i] - '0');
+      char _charBlock = worldStrip[i];
+      if (!isdigit(_charBlock)) {
+        printf("Invalid Worldfile");
+        GenWorld();
+        return;
+      }
+      enum BlockType _blockType = (enum BlockType)(_charBlock - '0');
       Block* _block = GetBlockAt(i, _hight);
       SetBlockType(_block, _blockType);
     };
     _hight++;
   }
   fclose(worldFile);
+}
+
+void GenWorldFile() {
+
 }
 
 Block* GetBlockAt(int x, int y) {
