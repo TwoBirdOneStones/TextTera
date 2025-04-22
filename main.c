@@ -39,7 +39,7 @@ void SetBlockType(Block* _block, enum BlockType _type);
 void SetBlockPos(Block* _block, int _x, int _y);
 void GenWorld(void);
 
-
+// test
 
 int main(){
   LoadWorldFile();
